@@ -1,0 +1,10 @@
+<ion-view view-title="Browse">
+    <ion-content>
+        <ion-item class="item-icon-left item-icon-right" ng-repeat="file in files" type="item-text-wrap" ng-click="showSubDirs(file)">
+            <i class="icon" ng-class="{'ion-android-folder' : file.isDirectory, 'ion-eye' : (!file.isDirectory && !file.isUpNav), 'ion-arrow-up-c' : file.isUpNav}"></i>
+            <h2>{{file.name}}</h2>
+            <p>Location : {{file.fullPath}}</p>
+            <i class="icon ion-chevron-right icon-accessory" ng-show="file.isDirectory"></i>
+        </ion-item>
+    </ion-content>
+</ion-view>

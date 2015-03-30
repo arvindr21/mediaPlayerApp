@@ -1,0 +1,34 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-assertive">
+        <h1 class="title">Player</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="hidePlayer()">Hide</button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <div class="list card">
+            <div class="item">
+                <h2><i class="icon ion-ios-musical-notes"></i> {{name || '--'}}</h2>
+                <p>{{path || '--'}}</p>
+            </div>
+            <div class="item item-body">
+                <div ng-hide="loaded">
+                    <label>Please select a Media file to play</label>
+                </div>
+                <div ng-show="loaded" style="height: 30px; width: {{position}}%; transition: width 0.2s; background: #e42012;">
+                </div>
+            </div>
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="javascript:" ng-click="resumeAudio()" ng-hide="isPlaying || !loaded">
+                    <i class="icon ion-ios-play"></i> Play
+                </a>
+                <a class="tab-item" href="javascript:" ng-click="pauseAudio()" ng-show="isPlaying">
+                    <i class="icon ion-pause"></i> Pause
+                </a>
+                <a class="tab-item" href="javascript:" ng-click="stopAudio()" ng-show="isPlaying">
+                    <i class="icon ion-stop"></i> Stop
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>
